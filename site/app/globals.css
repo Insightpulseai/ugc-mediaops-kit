@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface-primary: #ffffff;
+  --color-surface-secondary: #f6f8fa;
+  --color-surface-tertiary: #eef1f4;
+  --color-surface-inset: #eff2f5;
+  --color-border-default: #d1d9e0;
+  --color-border-muted: #e1e7ec;
+  --color-text-primary: #1f2328;
+  --color-text-secondary: #59636e;
+  --color-text-muted: #818b98;
+  --color-accent-primary: #1868db;
+  --color-accent-emphasis: #0550ae;
+  --color-accent-subtle: #ddf4ff;
+  --color-accent-muted: #b6d7f8;
+  --color-success: #1a7f37;
+  --color-attention: #9a6700;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--color-text-primary);
+  background: var(--color-surface-primary);
+}
+
+code,
+pre {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+}
+
+/* Primer-inspired focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Section spacing rhythm */
+.section-spacing {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* Architecture diagram code block */
+.diagram-block {
+  background: var(--color-surface-secondary);
+  border: 1px solid var(--color-border-muted);
+  border-radius: 12px;
+  padding: 2rem;
+  overflow-x: auto;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Logo Marquee                                                       */
+/* ------------------------------------------------------------------ */
+
+/* Outer container with gradient fade masks */
+.marquee-mask {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+/* Inner flex track that scrolls */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+
+/* Pause on hover */
+.group:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Each content copy is a row of chips */
+.marquee-content {
+  display: flex;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reduced motion: disable animation, show static row */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
