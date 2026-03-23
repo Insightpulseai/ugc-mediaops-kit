@@ -1,23 +1,30 @@
 "use client";
 
+import { BrandIcon, brandColors } from "./BrandIcon";
+
 const items = [
-  { name: "fal", abbr: "FL" },
-  { name: "Gemini", abbr: "GM" },
-  { name: "Imagen", abbr: "IM" },
-  { name: "OpenAI", abbr: "OA" },
-  { name: "n8n", abbr: "N8" },
-  { name: "TikTok", abbr: "TT" },
-  { name: "Instagram Reels", abbr: "RL" },
-  { name: "YouTube Shorts", abbr: "YT" },
-  { name: "FFmpeg", abbr: "FF" },
-  { name: "Vercel", abbr: "VC" },
+  { name: "fal", brand: "fal" },
+  { name: "Gemini", brand: "gemini" },
+  { name: "Imagen", brand: "imagen" },
+  { name: "OpenAI", brand: "openai" },
+  { name: "n8n", brand: "n8n" },
+  { name: "TikTok", brand: "tiktok" },
+  { name: "Instagram Reels", brand: "instagram" },
+  { name: "YouTube Shorts", brand: "youtube" },
+  { name: "FFmpeg", brand: "ffmpeg" },
+  { name: "Vercel", brand: "vercel" },
 ];
 
-function Chip({ name, abbr }: { name: string; abbr: string }) {
+function Chip({ name, brand }: { name: string; brand: string }) {
+  const color = brandColors[brand] || "#6b7280";
+
   return (
     <div className="flex shrink-0 items-center gap-2.5 rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-primary)] px-4 py-2 opacity-60 transition-opacity hover:opacity-100">
-      <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[var(--color-surface-secondary)] text-[10px] font-bold text-[var(--color-text-muted)]">
-        {abbr}
+      <span
+        className="flex h-7 w-7 items-center justify-center rounded-md"
+        style={{ color }}
+      >
+        <BrandIcon brand={brand} size={18} />
       </span>
       <span className="text-sm font-medium text-[var(--color-text-secondary)] whitespace-nowrap">
         {name}

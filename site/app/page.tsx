@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LogoMarquee } from "@/components/LogoMarquee";
+import { BrandIcon, brandColors } from "@/components/BrandIcon";
 
 /* ------------------------------------------------------------------ */
 /*  1. Eyebrow Banner                                                  */
@@ -92,18 +93,18 @@ function Hero() {
 /* ------------------------------------------------------------------ */
 function LogoSuite() {
   const providers = [
-    { name: "fal", role: "Video & mixed media" },
-    { name: "Gemini", role: "Fast stills" },
-    { name: "Imagen", role: "Premium stills" },
-    { name: "OpenAI", role: "Eval & QA" },
-    { name: "n8n", role: "Orchestration" },
+    { name: "fal", brand: "fal", role: "Video & mixed media" },
+    { name: "Gemini", brand: "gemini", role: "Fast stills" },
+    { name: "Imagen", brand: "imagen", role: "Premium stills" },
+    { name: "OpenAI", brand: "openai", role: "Eval & QA" },
+    { name: "n8n", brand: "n8n", role: "Orchestration" },
   ];
 
   const platforms = [
-    { name: "TikTok", aspect: "9:16" },
-    { name: "Reels", aspect: "9:16" },
-    { name: "Shorts", aspect: "9:16" },
-    { name: "YouTube", aspect: "16:9" },
+    { name: "TikTok", brand: "tiktok", aspect: "9:16" },
+    { name: "Reels", brand: "instagram", aspect: "9:16" },
+    { name: "Shorts", brand: "youtube", aspect: "9:16" },
+    { name: "YouTube", brand: "youtube", aspect: "16:9" },
   ];
 
   return (
@@ -119,8 +120,11 @@ function LogoSuite() {
               key={p.name}
               className="flex flex-col items-center gap-1.5"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-surface-primary)] text-sm font-bold text-[var(--color-text-secondary)] shadow-sm ring-1 ring-[var(--color-border-default)]">
-                {p.name.slice(0, 2).toUpperCase()}
+              <div
+                className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-surface-primary)] shadow-sm ring-1 ring-[var(--color-border-default)]"
+                style={{ color: brandColors[p.brand] }}
+              >
+                <BrandIcon brand={p.brand} size={24} />
               </div>
               <span className="text-xs font-medium text-[var(--color-text-secondary)]">
                 {p.name}
@@ -133,8 +137,11 @@ function LogoSuite() {
           {platforms.map((p) => (
             <span
               key={p.name}
-              className="rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-primary)] px-3 py-1 text-xs text-[var(--color-text-muted)]"
+              className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-primary)] px-3 py-1 text-xs text-[var(--color-text-muted)]"
             >
+              <span style={{ color: brandColors[p.brand] }}>
+                <BrandIcon brand={p.brand} size={12} />
+              </span>
               {p.name} {p.aspect}
             </span>
           ))}

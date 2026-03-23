@@ -58,10 +58,27 @@ This project is being built in stages:
 
 | Provider | Role | Mode |
 |----------|------|------|
-| **fal.ai** | Video, audio, mixed-media generation, utility transforms | Queue + webhook |
-| **Gemini** | Fast stills, conversational editing, concepting | Synchronous |
-| **Imagen** | Premium-quality stills, logos, brand-critical visuals | Synchronous |
-| **OpenAI multimodal** | Understanding, evaluation, QA, extraction | Synchronous |
+| <img src="https://img.shields.io/badge/fal-6366f1?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcng9IjQiIGZpbGw9Im5vbmUiLz48dGV4dCB4PSIzIiB5PSIxOCIgZm9udC1zaXplPSIxNiIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIj5mYWw8L3RleHQ+PC9zdmc+&logoColor=white" alt="fal" height="20"> | Video, audio, mixed-media generation, utility transforms | Queue + webhook |
+| <img src="https://img.shields.io/badge/Gemini-8E75B2?style=flat-square&logo=googlegemini&logoColor=white" alt="Gemini" height="20"> | Fast stills, conversational editing, concepting | Synchronous |
+| <img src="https://img.shields.io/badge/Imagen-4285F4?style=flat-square&logo=google&logoColor=white" alt="Imagen" height="20"> | Premium-quality stills, logos, brand-critical visuals | Synchronous |
+| <img src="https://img.shields.io/badge/OpenAI-10A37F?style=flat-square&logo=openai&logoColor=white" alt="OpenAI" height="20"> | Understanding, evaluation, QA, extraction | Synchronous |
+
+**Publish targets**
+
+| Platform | Format |
+|----------|--------|
+| <img src="https://img.shields.io/badge/TikTok-000000?style=flat-square&logo=tiktok&logoColor=white" alt="TikTok" height="20"> | 9:16 short-form |
+| <img src="https://img.shields.io/badge/Instagram_Reels-E4405F?style=flat-square&logo=instagram&logoColor=white" alt="Instagram Reels" height="20"> | 9:16 short-form |
+| <img src="https://img.shields.io/badge/YouTube_Shorts-FF0000?style=flat-square&logo=youtube&logoColor=white" alt="YouTube Shorts" height="20"> | 9:16 short-form |
+| <img src="https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white" alt="YouTube" height="20"> | 16:9 long-form |
+
+**Orchestration & tools**
+
+| Tool | Role |
+|------|------|
+| <img src="https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white" alt="n8n" height="20"> | Workflow orchestration |
+| <img src="https://img.shields.io/badge/FFmpeg-007808?style=flat-square&logo=ffmpeg&logoColor=white" alt="FFmpeg" height="20"> | Media processing |
+| <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white" alt="Vercel" height="20"> | Edge deployment |
 
 Generation providers produce assets. OpenAI evaluates and reviews them. The broker routes jobs to the right provider based on modality and quality tier.
 
