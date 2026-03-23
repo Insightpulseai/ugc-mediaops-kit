@@ -4,7 +4,7 @@ Open-source finishing pipeline for agency UGC and generative media workflows.
 
 **Brief → Generate → Polish → Export → Evaluate → Publish**
 
-[Website](https://insightpulseai.com) · [Architecture](docs/architecture/OVERVIEW.md) · [Provider Policy](docs/architecture/PROVIDER_POLICY.md) · [fal Integration](docs/architecture/FAL_INTEGRATION_STRATEGY.md)
+[Website](https://insightpulseai.github.io/ugc-mediaops-kit) · [Architecture](docs/architecture/OVERVIEW.md) · [Provider Policy](docs/architecture/PROVIDER_POLICY.md) · [fal Integration](docs/architecture/FAL_INTEGRATION_STRATEGY.md)
 
 ---
 
