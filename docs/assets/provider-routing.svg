@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" fill="none">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .title { font-size: 12px; font-weight: 600; fill: #1f2328; }
+    .label { font-size: 10px; fill: #59636e; }
+    .model { font-size: 9px; fill: #818b98; font-family: ui-monospace, SFMono-Regular, monospace; }
+    .box { rx: 8; stroke-width: 1.5; }
+    .line { stroke: #d1d9e0; stroke-width: 1.5; }
+  </style>
+
+  <rect width="720" height="340" rx="12" fill="#ffffff" stroke="#e1e7ec" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2328" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">Provider Routing</text>
+
+  <!-- Broker -->
+  <rect x="280" y="50" width="160" height="50" class="box" fill="#ddf4ff" stroke="#0550ae"/>
+  <text x="360" y="72" text-anchor="middle" class="title">Provider Broker</text>
+  <text x="360" y="88" text-anchor="middle" class="label">Task-driven routing</text>
+
+  <!-- Lines from broker to providers -->
+  <line x1="310" y1="100" x2="120" y2="140" class="line"/>
+  <line x1="340" y1="100" x2="300" y2="140" class="line"/>
+  <line x1="380" y1="100" x2="460" y2="140" class="line"/>
+  <line x1="410" y1="100" x2="620" y2="140" class="line"/>
+
+  <!-- fal -->
+  <rect x="30" y="140" width="180" height="155" class="box" fill="#f6f8fa" stroke="#d1d9e0"/>
+  <text x="120" y="163" text-anchor="middle" class="title">fal.ai</text>
+  <text x="120" y="178" text-anchor="middle" class="label">Video, audio, mixed-media</text>
+  <text x="50" y="198" class="model">nano-banana-2</text>
+  <text x="50" y="212" class="model">nano-banana-pro</text>
+  <text x="50" y="226" class="model">flux-pro/kontext</text>
+  <text x="50" y="240" class="model">kling-video/v3/pro</text>
+  <text x="50" y="254" class="model">ltx-2.3/image-to-video</text>
+  <text x="50" y="268" class="model">veo-3.1</text>
+  <text x="50" y="282" class="model">pixelcut/background-removal</text>
+  <rect x="135" y="288" width="70" height="20" rx="10" fill="#eff2f5" stroke="none"/>
+  <text x="170" y="302" text-anchor="middle" class="model" fill="#59636e">Queue</text>
+
+  <!-- Gemini -->
+  <rect x="220" y="140" width="160" height="105" class="box" fill="#f6f8fa" stroke="#d1d9e0"/>
+  <text x="300" y="163" text-anchor="middle" class="title">Gemini</text>
+  <text x="300" y="178" text-anchor="middle" class="label">Fast stills, editing</text>
+  <text x="240" y="198" class="model">gemini-2.5-flash-image</text>
+  <text x="240" y="212" class="model">gemini-3-pro-image-preview</text>
+  <rect x="295" y="228" width="60" height="20" rx="10" fill="#eff2f5" stroke="none"/>
+  <text x="325" y="242" text-anchor="middle" class="model" fill="#59636e">Sync</text>
+
+  <!-- Imagen -->
+  <rect x="390" y="140" width="150" height="105" class="box" fill="#f6f8fa" stroke="#d1d9e0"/>
+  <text x="465" y="163" text-anchor="middle" class="title">Imagen</text>
+  <text x="465" y="178" text-anchor="middle" class="label">Premium stills, logos</text>
+  <text x="410" y="198" class="model">imagen-4</text>
+  <rect x="440" y="228" width="60" height="20" rx="10" fill="#eff2f5" stroke="none"/>
+  <text x="470" y="242" text-anchor="middle" class="model" fill="#59636e">Sync</text>
+
+  <!-- OpenAI -->
+  <rect x="550" y="140" width="150" height="105" class="box" fill="#f6f8fa" stroke="#d1d9e0"/>
+  <text x="625" y="163" text-anchor="middle" class="title">OpenAI</text>
+  <text x="625" y="178" text-anchor="middle" class="label">Eval, QA, understanding</text>
+  <text x="570" y="198" class="model">gpt-5.2-multimodal</text>
+  <rect x="595" y="228" width="60" height="20" rx="10" fill="#eff2f5" stroke="none"/>
+  <text x="625" y="242" text-anchor="middle" class="model" fill="#59636e">Sync</text>
+
+  <!-- Legend -->
+  <text x="30" y="328" class="label">Generation: fal, Gemini, Imagen</text>
+  <text x="320" y="328" class="label">Understanding + Eval: OpenAI</text>
+</svg>

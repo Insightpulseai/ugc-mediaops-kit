@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .heading { font-size: 13px; font-weight: 700; fill: #1f2328; }
+    .title { font-size: 11px; font-weight: 600; fill: #1f2328; }
+    .label { font-size: 9px; fill: #59636e; }
+    .tier { font-size: 10px; font-weight: 600; }
+    .box { rx: 8; stroke-width: 1.5; }
+    .arrow { stroke: #b6d7f8; stroke-width: 2; marker-end: url(#arrow2); }
+  </style>
+  <defs>
+    <marker id="arrow2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#b6d7f8" stroke-width="1.2"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="400" rx="12" fill="#ffffff" stroke="#e1e7ec" stroke-width="1"/>
+  <text x="400" y="28" text-anchor="middle" class="heading">Brief to Publish Lifecycle</text>
+
+  <!-- Row 1: Pipeline stages -->
+  <rect x="30" y="50" width="740" height="90" rx="10" fill="#f6f8fa" stroke="#e1e7ec" stroke-width="1"/>
+  <text x="50" y="70" class="label" fill="#818b98">PIPELINE</text>
+
+  <!-- Stage boxes in row -->
+  <rect x="45" y="80" width="80" height="45" class="box" fill="#ddf4ff" stroke="#b6d7f8"/>
+  <text x="85" y="100" text-anchor="middle" class="title" font-size="10">Brief</text>
+  <text x="85" y="115" text-anchor="middle" class="label">Intake</text>
+
+  <line x1="125" y1="102" x2="140" y2="102" class="arrow"/>
+
+  <rect x="140" y="80" width="80" height="45" class="box" fill="#ddf4ff" stroke="#b6d7f8"/>
+  <text x="180" y="100" text-anchor="middle" class="title" font-size="10">Generate</text>
+  <text x="180" y="115" text-anchor="middle" class="label">Route</text>
+
+  <line x1="220" y1="102" x2="235" y2="102" class="arrow"/>
+
+  <rect x="235" y="80" width="80" height="45" class="box" fill="#ddf4ff" stroke="#b6d7f8"/>
+  <text x="275" y="100" text-anchor="middle" class="title" font-size="10">Polish</text>
+  <text x="275" y="115" text-anchor="middle" class="label">Clean</text>
+
+  <line x1="315" y1="102" x2="330" y2="102" class="arrow"/>
+
+  <rect x="330" y="80" width="80" height="45" class="box" fill="#ddf4ff" stroke="#b6d7f8"/>
+  <text x="370" y="100" text-anchor="middle" class="title" font-size="10">Brand</text>
+  <text x="370" y="115" text-anchor="middle" class="label">Enforce</text>
+
+  <line x1="410" y1="102" x2="425" y2="102" class="arrow"/>
+
+  <rect x="425" y="80" width="80" height="45" class="box" fill="#ddf4ff" stroke="#b6d7f8"/>
+  <text x="465" y="100" text-anchor="middle" class="title" font-size="10">Export</text>
+  <text x="465" y="115" text-anchor="middle" class="label">Package</text>
+
+  <line x1="505" y1="102" x2="520" y2="102" class="arrow"/>
+
+  <rect x="520" y="80" width="80" height="45" class="box" fill="#ddf4ff" stroke="#b6d7f8"/>
+  <text x="560" y="100" text-anchor="middle" class="title" font-size="10">QA</text>
+  <text x="560" y="115" text-anchor="middle" class="label">Gate</text>
+
+  <line x1="600" y1="102" x2="615" y2="102" class="arrow"/>
+
+  <rect x="615" y="80" width="80" height="45" class="box" fill="#ddf4ff" stroke="#b6d7f8"/>
+  <text x="655" y="100" text-anchor="middle" class="title" font-size="10">Publish</text>
+  <text x="655" y="115" text-anchor="middle" class="label">Deliver</text>
+
+  <!-- Row 2: Output tiers -->
+  <text x="50" y="175" class="label" fill="#818b98">OUTPUT MODEL</text>
+
+  <rect x="45" y="185" width="220" height="55" class="box" fill="#fef3c7" stroke="#fbbf24"/>
+  <text x="155" y="207" text-anchor="middle" class="tier" fill="#92400e">Bronze</text>
+  <text x="155" y="222" text-anchor="middle" class="label">Raw briefs, prompts, assets, render logs</text>
+
+  <rect x="280" y="185" width="230" height="55" class="box" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="395" y="207" text-anchor="middle" class="tier" fill="#475569">Silver</text>
+  <text x="395" y="222" text-anchor="middle" class="label">Normalized jobs, metadata, QC signals, manifests</text>
+
+  <rect x="525" y="185" width="220" height="55" class="box" fill="#fefce8" stroke="#eab308"/>
+  <text x="635" y="207" text-anchor="middle" class="tier" fill="#854d0e">Gold</text>
+  <text x="635" y="222" text-anchor="middle" class="label">Campaign KPIs, performance, recommendations</text>
+
+  <!-- Row 3: Orchestration -->
+  <text x="50" y="280" class="label" fill="#818b98">ORCHESTRATION</text>
+
+  <rect x="45" y="290" width="150" height="45" class="box" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="120" y="310" text-anchor="middle" class="title" font-size="10">n8n</text>
+  <text x="120" y="325" text-anchor="middle" class="label">Primary lane</text>
+
+  <rect x="210" y="290" width="150" height="45" class="box" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="285" y="310" text-anchor="middle" class="title" font-size="10">Programmatic</text>
+  <text x="285" y="325" text-anchor="middle" class="label">Secondary lane</text>
+
+  <!-- Row 3: Data plane -->
+  <rect x="400" y="290" width="160" height="45" class="box" fill="#faf5ff" stroke="#c4b5fd"/>
+  <text x="480" y="310" text-anchor="middle" class="title" font-size="10">Databricks</text>
+  <text x="480" y="325" text-anchor="middle" class="label">Analytics plane</text>
+
+  <rect x="575" y="290" width="170" height="45" class="box" fill="#faf5ff" stroke="#c4b5fd"/>
+  <text x="660" y="310" text-anchor="middle" class="title" font-size="10">Power BI / Fabric</text>
+  <text x="660" y="325" text-anchor="middle" class="label">Consumption</text>
+
+  <!-- Connections -->
+  <line x1="655" y1="125" x2="635" y2="185" stroke="#d1d9e0" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="275" y1="125" x2="155" y2="185" stroke="#d1d9e0" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="465" y1="125" x2="395" y2="185" stroke="#d1d9e0" stroke-width="1" stroke-dasharray="4"/>
+
+  <!-- Footer -->
+  <text x="50" y="375" class="label" fill="#818b98">ugc-mediaops-kit &middot; Apache 2.0 &middot; insightpulseai.com</text>
+</svg>
