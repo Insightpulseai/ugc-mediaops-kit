@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandIcon, brandColors } from "@/components/BrandIcon";
 
 export default function WorkflowsPage() {
   return (
@@ -115,14 +116,23 @@ export default function WorkflowsPage() {
                   Providers used
                 </p>
                 <div className="mt-3 space-y-2">
-                  {wf.providers.map((p) => (
-                    <div
-                      key={p}
-                      className="rounded-lg bg-[var(--color-surface-secondary)] px-3 py-2 text-sm text-[var(--color-text-secondary)]"
-                    >
-                      {p}
-                    </div>
-                  ))}
+                  {wf.providers.map((p) => {
+                    const brandKey = p.split(" ")[0].toLowerCase().replace("(", "");
+                    const color = brandColors[brandKey];
+                    return (
+                      <div
+                        key={p}
+                        className="flex items-center gap-2 rounded-lg bg-[var(--color-surface-secondary)] px-3 py-2 text-sm text-[var(--color-text-secondary)]"
+                      >
+                        {color && (
+                          <span style={{ color }}>
+                            <BrandIcon brand={brandKey} size={14} />
+                          </span>
+                        )}
+                        {p}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -134,34 +144,45 @@ export default function WorkflowsPage() {
       <section className="mt-16">
         <h2 className="text-2xl font-bold">Orchestration</h2>
         <p className="mt-3 text-sm text-[var(--color-text-secondary)]">
-          n8n is the primary orchestration lane. No custom code needed for basic
+          <span className="inline-flex items-center gap-1.5">
+            <span style={{ color: brandColors.n8n }}><BrandIcon brand="n8n" size={16} /></span>
+            n8n
+          </span>{" "}
+          is the primary orchestration lane. No custom code needed for basic
           submit/poll/collect flows.
         </p>
-        <div className="mt-6 diagram-block">
-          <pre className="text-sm text-[var(--color-text-secondary)]">
-{`Brief intake trigger
-     │
-     ▼
-Queue submit to fal  ←  Authorization: Key header
-     │
-     ▼
-Poll for completion  ←  or webhook callback
-     │
-     ▼
-Collect artifacts
-     │
-     ▼
-QA/eval gate  ←  block on failure
-     │
-     ▼
-Export package
-     │
-     ▼
-Publish handoff
-     │
-     ▼
-Analytics emit  →  governed data plane`}
-          </pre>
+        <div className="mt-6 rounded-xl border border-[var(--color-border-muted)] bg-[var(--color-surface-secondary)] p-6">
+          <svg viewBox="0 0 600 440" className="w-full max-w-lg mx-auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="n8n orchestration flow">
+            <defs>
+              <marker id="wf-arrow" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="7" markerHeight="5" orient="auto-start-auto">
+                <path d="M0,0 L10,3.5 L0,7" fill="#94a3b8" />
+              </marker>
+              <filter id="wf-shadow" x="-4%" y="-4%" width="108%" height="108%">
+                <feDropShadow dx="0" dy="1" stdDeviation="2" floodColor="#000" floodOpacity="0.05" />
+              </filter>
+            </defs>
+            {[
+              { y: 0, label: "Brief intake trigger", note: "", color: "#1868db", bg: "#ddf4ff" },
+              { y: 50, label: "Queue submit to fal", note: "Authorization: Key header", color: "#6366f1", bg: "#eef2ff" },
+              { y: 100, label: "Poll for completion", note: "or webhook callback", color: "#6366f1", bg: "#eef2ff" },
+              { y: 150, label: "Collect artifacts", note: "", color: "#1f2328", bg: "#f6f8fa" },
+              { y: 200, label: "QA / eval gate", note: "block on failure", color: "#dc2626", bg: "#fef2f2" },
+              { y: 250, label: "Export package", note: "", color: "#1a7f37", bg: "#dcfce7" },
+              { y: 300, label: "Publish handoff", note: "", color: "#1a7f37", bg: "#dcfce7" },
+              { y: 350, label: "Analytics emit", note: "governed data plane", color: "#7B1FA2", bg: "#f3e5f5" },
+            ].map((step, i, arr) => (
+              <g key={step.label}>
+                <rect x="120" y={step.y + 10} width="260" height="36" rx="8" fill={step.bg} stroke="#d1d9e0" strokeWidth="1" filter="url(#wf-shadow)" />
+                <text x="140" y={step.y + 33} fontSize="12" fontWeight="600" fill={step.color} fontFamily="-apple-system, sans-serif">{step.label}</text>
+                {step.note && (
+                  <text x="400" y={step.y + 33} fontSize="10" fill="#818b98" fontFamily="-apple-system, sans-serif">{step.note}</text>
+                )}
+                {i < arr.length - 1 && (
+                  <line x1="250" y1={step.y + 46} x2="250" y2={step.y + 60} stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#wf-arrow)" />
+                )}
+              </g>
+            ))}
+          </svg>
         </div>
       </section>
     </div>
