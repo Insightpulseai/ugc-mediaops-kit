@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandIcon, brandColors } from "@/components/BrandIcon";
 
 export default function ProvidersPage() {
   return (
@@ -22,6 +23,7 @@ export default function ProvidersPage() {
         {[
           {
             name: "fal.ai",
+            brand: "fal",
             role: "Video, audio, mixed-media generation",
             when: "UGC video/audio, batch media, queue-based production",
             mode: "Queue + webhook",
@@ -43,7 +45,8 @@ export default function ProvidersPage() {
           },
           {
             name: "Gemini",
-            role: "Fast stills, conversational editing",
+            brand: "gemini",
+            role: "Fast stills, conversational editing, native image generation",
             when: "Default for speed, iteration, editing, concepting",
             mode: "Synchronous",
             models: [
@@ -53,13 +56,26 @@ export default function ProvidersPage() {
           },
           {
             name: "Imagen",
+            brand: "imagen",
             role: "Premium-quality stills",
             when: "Brand-critical visuals, logos, product imagery",
             mode: "Synchronous",
             models: [{ id: "imagen-4", job: "Premium stills" }],
           },
           {
+            name: "Sora 2",
+            brand: "sora",
+            role: "AI video generation (Azure OpenAI)",
+            when: "Premium cinematic video, Azure-native pipelines",
+            mode: "Queue (Azure)",
+            models: [
+              { id: "sora-2", job: "Video generation" },
+              { id: "sora-2 (storyboard)", job: "Multi-scene storyboard" },
+            ],
+          },
+          {
             name: "OpenAI Multimodal",
+            brand: "openai",
             role: "Understanding, evaluation, QA",
             when: "Creative QA, captioning, scoring, extraction",
             mode: "Synchronous",
@@ -71,7 +87,14 @@ export default function ProvidersPage() {
             className="rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-primary)] p-6"
           >
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-bold">{provider.name}</h2>
+              <div className="flex items-center gap-2">
+                {provider.brand && (
+                  <span style={{ color: brandColors[provider.brand] }}>
+                    <BrandIcon brand={provider.brand} size={20} />
+                  </span>
+                )}
+                <h2 className="text-xl font-bold">{provider.name}</h2>
+              </div>
               <span className="rounded-full bg-[var(--color-surface-inset)] px-2.5 py-0.5 text-xs text-[var(--color-text-muted)]">
                 {provider.mode}
               </span>

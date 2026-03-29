@@ -56,6 +56,17 @@ export function BrandIcon({
         <path d="M4.5 1.5h15a3 3 0 013 3v15a3 3 0 01-3 3h-15a3 3 0 01-3-3v-15a3 3 0 013-3zm1.25 5v11h2V12h4v-2h-4V8.5h5v-2H5.75zm9 0v11h2V12h3v-2h-3V8.5h4v-2h-6z" />
       </svg>
     ),
+    sora: (
+      <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
+        <path d="M22.282 9.821a5.985 5.985 0 00-.516-4.91 6.046 6.046 0 00-6.51-2.9A6.065 6.065 0 0011.71.421a6.004 6.004 0 00-5.753 4.19 5.988 5.988 0 00-3.9 2.9 6.046 6.046 0 00.744 7.093 5.98 5.98 0 00.51 4.911 6.051 6.051 0 006.515 2.9A5.985 5.985 0 0013.38 23.6a6.004 6.004 0 005.753-4.19 5.988 5.988 0 003.9-2.9 6.033 6.033 0 00-.75-6.689z" />
+        <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+      </svg>
+    ),
+    azure: (
+      <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
+        <path d="M5.483.314l6.781 6.399-8.063 9.55L.313 21.34h7.416l3.768 2.346H24L15.057 16.1 22.1 5.062 13.608.314z" />
+      </svg>
+    ),
     vercel: (
       <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
         <path d="M24 22.525H0l12-21.05 12 21.05z" />
@@ -77,5 +88,7 @@ export const brandColors: Record<string, string> = {
   instagram: "#E4405F",
   youtube: "#FF0000",
   ffmpeg: "#007808",
+  sora: "#412991",
+  azure: "#0078D4",
   vercel: "#000000",
 };
