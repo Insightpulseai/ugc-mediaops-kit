@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ArchitectureDiagram } from "@/components/ArchitectureDiagram";
+import { BrandIcon, brandColors } from "@/components/BrandIcon";
 
 export default function ArchitecturePage() {
   return (
@@ -19,35 +21,9 @@ export default function ArchitecturePage() {
         publish-ready.
       </p>
 
-      {/* System diagram */}
-      <div className="diagram-block mt-10">
-        <pre className="text-sm text-[var(--color-text-secondary)]">
-{`                     ┌─────────────────────────────────────────────────┐
-                     │               ugc-mediaops-kit                  │
-                     │                                                 │
-                     │  ┌──────────┐    ┌──────────┐    ┌───────────┐  │
-Creative Brief ─────▶│  │  Schema  │───▶│ Provider │───▶│ Pipeline  │  │
-                     │  │Validator │    │  Broker  │    │  Runner   │  │
-Raw Assets ─────────▶│  └──────────┘    └────┬─────┘    └─────┬─────┘  │
-                     │                       │                │        │
-                     │                       ▼                ▼        │
-                     │                  ┌─────────┐    ┌───────────┐   │
-                     │                  │  Brand  │    │  QA/Eval  │   │
-                     │                  │ Presets │    │  Engine   │   │
-                     │                  └────┬────┘    └─────┬─────┘   │
-                     │                       │               │         │
-                     │                       ▼               ▼         │
-                     │                  ┌──────────────────────┐       │
-                     │                  │   Export Packager    │       │
-                     │                  └──────────┬───────────┘       │
-                     └─────────────────────────────┼───────────────────┘
-                                                   │
-                                ┌──────────────────┼──────────────────┐
-                                ▼                  ▼                  ▼
-                           ┌─────────┐      ┌──────────┐      ┌──────────┐
-                           │ TikTok  │      │  Reels   │      │ YouTube  │
-                           └─────────┘      └──────────┘      └──────────┘`}
-        </pre>
+      {/* System diagram — SVG with real brand colors */}
+      <div className="mt-10 rounded-xl border border-[var(--color-border-muted)] bg-[var(--color-surface-secondary)] p-6">
+        <ArchitectureDiagram className="w-full" />
       </div>
 
       {/* Services */}
@@ -103,13 +79,20 @@ Raw Assets ─────────▶│  └──────────�
             </thead>
             <tbody className="divide-y divide-[var(--color-border-muted)]">
               {[
-                ["fal.ai", "Video, audio, mixed-media, utility transforms", "Queue + webhook"],
-                ["Gemini", "Fast stills, conversational editing", "Synchronous"],
-                ["Imagen", "Premium stills, logos, brand visuals", "Synchronous"],
-                ["OpenAI", "Understanding, evaluation, QA (not generation)", "Synchronous"],
-              ].map(([provider, role, mode]) => (
+                { provider: "fal.ai", brand: "fal", role: "Video, audio, mixed-media, utility transforms", mode: "Queue + webhook" },
+                { provider: "Gemini", brand: "gemini", role: "Fast stills, conversational editing", mode: "Synchronous" },
+                { provider: "Imagen", brand: "imagen", role: "Premium stills, logos, brand visuals", mode: "Synchronous" },
+                { provider: "OpenAI", brand: "openai", role: "Understanding, evaluation, QA (not generation)", mode: "Synchronous" },
+              ].map(({ provider, brand, role, mode }) => (
                 <tr key={provider}>
-                  <td className="py-3 pr-4 font-medium">{provider}</td>
+                  <td className="py-3 pr-4 font-medium">
+                    <span className="inline-flex items-center gap-2">
+                      <span style={{ color: brandColors[brand] }}>
+                        <BrandIcon brand={brand} size={16} />
+                      </span>
+                      {provider}
+                    </span>
+                  </td>
                   <td className="py-3 pr-4 text-[var(--color-text-secondary)]">{role}</td>
                   <td className="py-3">
                     <span className="rounded-full bg-[var(--color-surface-inset)] px-2 py-0.5 text-xs text-[var(--color-text-muted)]">

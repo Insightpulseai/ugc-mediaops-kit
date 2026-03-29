@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { BrandIcon, brandColors } from "@/components/BrandIcon";
+import { HeroDiagram } from "@/components/ArchitectureDiagram";
 
 /* ------------------------------------------------------------------ */
 /*  1. Eyebrow Banner                                                  */
@@ -65,22 +66,8 @@ function Hero() {
           </div>
 
           {/* Architecture diagram as hero visual */}
-          <div className="diagram-block hidden lg:block">
-            <pre className="text-[var(--color-text-secondary)]">
-{`┌──────────────────────────────────────────┐
-│           ugc-mediaops-kit               │
-│                                          │
-│  Schema ──▶ Broker ──▶ Pipeline ──▶ Export│
-│  Validator    │         Runner      Pack  │
-│               ▼           ▼              │
-│           Providers    QA/Eval           │
-└──────────────────────────────────────────┘
-        │          │          │
-        ▼          ▼          ▼
-     fal.ai    Gemini/    OpenAI
-     video     Imagen     eval
-     audio     stills     QA`}
-            </pre>
+          <div className="hidden lg:block">
+            <HeroDiagram className="w-full max-w-md mx-auto" />
           </div>
         </div>
       </div>
@@ -310,6 +297,7 @@ function ProviderTabs() {
   const providers = [
     {
       name: "fal",
+      brand: "fal",
       description:
         "Video, audio, and mixed-media generation with queue-first orchestration.",
       models: [
@@ -324,12 +312,14 @@ function ProviderTabs() {
     },
     {
       name: "Gemini",
+      brand: "gemini",
       description: "Fast stills, conversational editing, and concepting.",
       models: ["gemini-2.5-flash-image"],
       mode: "Synchronous",
     },
     {
       name: "Imagen",
+      brand: "imagen",
       description:
         "Premium-quality stills, logos, and brand-critical visual generation.",
       models: ["imagen-4"],
@@ -337,6 +327,7 @@ function ProviderTabs() {
     },
     {
       name: "OpenAI",
+      brand: "openai",
       description: "Understanding, evaluation, QA, and extraction.",
       models: ["gpt-5.2-multimodal"],
       mode: "Synchronous",
@@ -361,7 +352,12 @@ function ProviderTabs() {
               key={p.name}
               className="rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-primary)] p-6"
             >
-              <h3 className="text-lg font-semibold">{p.name}</h3>
+              <div className="flex items-center gap-2">
+                <span style={{ color: brandColors[p.brand] }}>
+                  <BrandIcon brand={p.brand} size={22} />
+                </span>
+                <h3 className="text-lg font-semibold">{p.name}</h3>
+              </div>
               <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
                 {p.description}
               </p>
