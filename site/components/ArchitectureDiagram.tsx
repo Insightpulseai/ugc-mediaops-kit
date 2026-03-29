@@ -154,7 +154,7 @@ export function ArchitectureDiagram({ className = "" }: { className?: string }) 
 export function HeroDiagram({ className = "" }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 440 320"
+      viewBox="0 0 380 340"
       className={className}
       xmlns="http://www.w3.org/2000/svg"
       role="img"
@@ -179,11 +179,11 @@ export function HeroDiagram({ className = "" }: { className?: string }) {
         { y: 285, label: "Publish Handoff", sub: "TikTok · Reels · YouTube", color: "#1f2328", bg: "#f6f8fa" },
       ].map((stage, i) => (
         <g key={stage.label}>
-          <rect x="80" y={stage.y} width="280" height="42" rx="10" fill={stage.bg} stroke="#d1d9e0" strokeWidth="1" filter="url(#hs)" />
-          <text x="100" y={stage.y + 18} fontSize="12" fontWeight="600" fill={stage.color} fontFamily="-apple-system, sans-serif">{stage.label}</text>
-          <text x="100" y={stage.y + 33} fontSize="9" fill="#818b98" fontFamily="-apple-system, sans-serif">{stage.sub}</text>
-          <text x="370" y={stage.y + 26} fontSize="18" fill="#d1d9e0" fontFamily="-apple-system, sans-serif" textAnchor="end">{i + 1}</text>
-          {i < 5 && <line x1="220" y1={stage.y + 42} x2="220" y2={stage.y + 55} stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#ha)" />}
+          <rect x="40" y={stage.y} width="300" height="42" rx="10" fill={stage.bg} stroke="#d1d9e0" strokeWidth="1" filter="url(#hs)" />
+          <text x="60" y={stage.y + 18} fontSize="12" fontWeight="600" fill={stage.color} fontFamily="-apple-system, sans-serif">{stage.label}</text>
+          <text x="60" y={stage.y + 33} fontSize="9" fill="#818b98" fontFamily="-apple-system, sans-serif">{stage.sub}</text>
+          <text x="325" y={stage.y + 28} fontSize="16" fill="#c8cdd2" fontFamily="-apple-system, sans-serif" textAnchor="end" fontWeight="600">{i + 1}</text>
+          {i < 5 && <line x1="190" y1={stage.y + 42} x2="190" y2={stage.y + 55} stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#ha)" />}
         </g>
       ))}
     </svg>
