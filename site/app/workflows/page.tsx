@@ -100,11 +100,11 @@ export default function WorkflowsPage() {
                 </p>
                 <ol className="mt-3 space-y-2">
                   {wf.steps.map((step, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm">
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-subtle)] text-xs font-bold text-[var(--color-accent-emphasis)]">
+                    <li key={i} className="flex items-center gap-2.5 text-sm">
+                      <span className="flex h-5 w-5 min-w-[1.25rem] shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-subtle)] text-[10px] font-bold leading-none text-[var(--color-accent-emphasis)]">
                         {i + 1}
                       </span>
-                      <span className="text-[var(--color-text-secondary)]">
+                      <span className="text-[var(--color-text-secondary)] leading-snug">
                         {step}
                       </span>
                     </li>
@@ -152,7 +152,7 @@ export default function WorkflowsPage() {
           submit/poll/collect flows.
         </p>
         <div className="mt-6 rounded-xl border border-[var(--color-border-muted)] bg-[var(--color-surface-secondary)] p-6">
-          <svg viewBox="0 0 600 440" className="w-full max-w-lg mx-auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="n8n orchestration flow">
+          <svg viewBox="0 0 560 410" className="w-full mx-auto" style={{maxWidth: "560px"}} xmlns="http://www.w3.org/2000/svg" role="img" aria-label="n8n orchestration flow">
             <defs>
               <marker id="wf-arrow" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="7" markerHeight="5" orient="auto-start-auto">
                 <path d="M0,0 L10,3.5 L0,7" fill="#94a3b8" />
@@ -163,13 +163,13 @@ export default function WorkflowsPage() {
             </defs>
             {[
               { y: 0, label: "Brief intake trigger", note: "", color: "#1868db", bg: "#ddf4ff" },
-              { y: 50, label: "Queue submit to fal", note: "Authorization: Key header", color: "#6366f1", bg: "#eef2ff" },
-              { y: 100, label: "Poll for completion", note: "or webhook callback", color: "#6366f1", bg: "#eef2ff" },
-              { y: 150, label: "Collect artifacts", note: "", color: "#1f2328", bg: "#f6f8fa" },
-              { y: 200, label: "QA / eval gate", note: "block on failure", color: "#dc2626", bg: "#fef2f2" },
-              { y: 250, label: "Export package", note: "", color: "#1a7f37", bg: "#dcfce7" },
-              { y: 300, label: "Publish handoff", note: "", color: "#1a7f37", bg: "#dcfce7" },
-              { y: 350, label: "Analytics emit", note: "governed data plane", color: "#7B1FA2", bg: "#f3e5f5" },
+              { y: 48, label: "Queue submit to fal", note: "Authorization: Key header", color: "#6366f1", bg: "#eef2ff" },
+              { y: 96, label: "Poll for completion", note: "or webhook callback", color: "#6366f1", bg: "#eef2ff" },
+              { y: 144, label: "Collect artifacts", note: "", color: "#1f2328", bg: "#f6f8fa" },
+              { y: 192, label: "QA / eval gate", note: "block on failure", color: "#dc2626", bg: "#fef2f2" },
+              { y: 240, label: "Export package", note: "", color: "#1a7f37", bg: "#dcfce7" },
+              { y: 288, label: "Publish handoff", note: "", color: "#1a7f37", bg: "#dcfce7" },
+              { y: 336, label: "Analytics emit", note: "governed data plane", color: "#7B1FA2", bg: "#f3e5f5" },
             ].map((step, i, arr) => (
               <g key={step.label}>
                 <rect x="120" y={step.y + 10} width="260" height="36" rx="8" fill={step.bg} stroke="#d1d9e0" strokeWidth="1" filter="url(#wf-shadow)" />
