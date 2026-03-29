@@ -56,8 +56,9 @@ Sora 2 is available on Azure OpenAI as a gated preview model for AI video genera
 - **Endpoint**: `https://{resource}.openai.azure.com/openai/deployments/{deployment}/videos`
 - **Regions**: East US 2, Sweden Central
 - **Gating**: Enterprise (MCA-E / EA) or 1000+ CU customers
-- **Docs**: https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/video-generation
-- **Guide**: https://techcommunity.microsoft.com/blog/educatordeveloperblog/building-with-azure-openai-sora-a-complete-guide-to-ai-video-generation/4466325
+- **OpenAI API**: https://developers.openai.com/api/docs/guides/video-generation
+- **Azure Docs**: https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/video-generation
+- **Azure Guide**: https://techcommunity.microsoft.com/blog/educatordeveloperblog/building-with-azure-openai-sora-a-complete-guide-to-ai-video-generation/4466325
 
 ### When to use Sora 2 vs fal video models
 
