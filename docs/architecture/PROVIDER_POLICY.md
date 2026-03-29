@@ -106,6 +106,25 @@ OpenAI is the understanding and evaluation layer. Not the default generation pro
 - Premium stills (use Imagen)
 - Video/audio/mixed-media (use fal)
 
+## Sora 2 Narration Routing Policy
+
+Sora 2 supports audio in output videos (Sora 1 does not). For narrated content:
+
+```yaml
+azure_sora_narration_policy:
+  short_native_audio_clips:
+    provider: azure_sora_2
+    max_duration_seconds: 8
+    use_case: [short promo, short explainer, ambient dialogue]
+  deterministic_narration_required:
+    provider: azure_sora_2_for_video
+    post_process_audio: separate_tts_track
+  forbidden_or_high_risk:
+    - long monologue
+    - complex multi-speaker sync
+    - photorealistic real-person dependency in preview
+```
+
 ## fal Production Policy
 
 - Use hosted model queue endpoints first
