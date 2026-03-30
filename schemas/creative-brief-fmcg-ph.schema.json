@@ -1,0 +1,255 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://insightpulseai.github.io/ugc-mediaops-kit/schemas/creative-brief-fmcg-ph",
+  "title": "FMCG Philippines Creative Brief",
+  "description": "Structured creative brief for FMCG social media campaigns targeting the Philippine market.",
+  "type": "object",
+  "required": ["brief_id", "brand", "campaign", "audience", "platforms", "content_specs"],
+  "properties": {
+    "brief_id": {
+      "type": "string",
+      "description": "Unique identifier for this brief",
+      "pattern": "^BRIEF-PH-[A-Z0-9]+-\\d{8}$"
+    },
+    "brand": {
+      "type": "object",
+      "required": ["name", "category", "owner"],
+      "properties": {
+        "name": { "type": "string", "description": "Brand name (e.g., Lucky Me!, Nescafé)" },
+        "category": {
+          "type": "string",
+          "enum": [
+            "food_instant_noodles",
+            "food_snacks",
+            "food_condiments",
+            "beverages_coffee",
+            "beverages_juice",
+            "beverages_soft_drinks",
+            "personal_care",
+            "home_care",
+            "baby_care",
+            "dairy",
+            "cooking_oil",
+            "other"
+          ]
+        },
+        "owner": { "type": "string", "description": "Parent company (e.g., Monde Nissin, Nestlé, Unilever)" },
+        "brand_preset_id": { "type": "string", "description": "Reference to BrandPreset schema for fonts, colors, watermarks" }
+      }
+    },
+    "campaign": {
+      "type": "object",
+      "required": ["name", "objective", "type"],
+      "properties": {
+        "name": { "type": "string" },
+        "objective": {
+          "type": "string",
+          "enum": ["awareness", "engagement", "conversion", "loyalty", "launch", "seasonal"]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "ugc_challenge",
+            "influencer_collab",
+            "shoppertainment",
+            "recipe_hack",
+            "product_launch",
+            "seasonal_promo",
+            "csr_purpose",
+            "reactive_trend",
+            "sari_sari_activation"
+          ]
+        },
+        "cultural_moment": {
+          "type": "string",
+          "enum": [
+            "new_year",
+            "valentines",
+            "lenten_holy_week",
+            "summer",
+            "independence_day",
+            "school_opening",
+            "buwan_ng_wika",
+            "ber_months_start",
+            "11_11_sale",
+            "christmas_noche_buena",
+            "payday",
+            "fiesta",
+            "none"
+          ],
+          "description": "Philippine cultural moment this campaign aligns with"
+        },
+        "hashtags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Campaign and branded hashtags"
+        },
+        "start_date": { "type": "string", "format": "date" },
+        "end_date": { "type": "string", "format": "date" }
+      }
+    },
+    "audience": {
+      "type": "object",
+      "required": ["age_range", "location"],
+      "properties": {
+        "age_range": {
+          "type": "object",
+          "properties": {
+            "min": { "type": "integer", "minimum": 13 },
+            "max": { "type": "integer", "maximum": 65 }
+          }
+        },
+        "gender": {
+          "type": "string",
+          "enum": ["all", "female", "male"]
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "scope": {
+              "type": "string",
+              "enum": ["nationwide", "metro_manila", "luzon", "visayas", "mindanao", "provincial", "urban", "rural"]
+            },
+            "cities": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Specific cities if targeted (e.g., Manila, Cebu, Davao)"
+            }
+          }
+        },
+        "socioeconomic": {
+          "type": "string",
+          "enum": ["AB", "C1", "C2", "D", "E", "mass_market", "all"],
+          "description": "Philippine SEC classification"
+        },
+        "language": {
+          "type": "string",
+          "enum": ["tagalog", "english", "taglish", "bisaya", "regional"],
+          "default": "taglish"
+        },
+        "persona_tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "e.g., sari_sari_owner, nanay, student, young_professional, foodie"
+        }
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["platform", "format"],
+        "properties": {
+          "platform": {
+            "type": "string",
+            "enum": ["tiktok", "facebook", "instagram", "youtube", "tiktok_shop"]
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "short_video_15s",
+              "short_video_30s",
+              "short_video_60s",
+              "reels",
+              "stories",
+              "carousel",
+              "livestream",
+              "youtube_shorts",
+              "youtube_long",
+              "facebook_group_post",
+              "static_image"
+            ]
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": ["9:16", "1:1", "16:9", "4:5"],
+            "default": "9:16"
+          },
+          "posting_frequency": {
+            "type": "string",
+            "description": "e.g., 5x/week, daily, 3x/week"
+          }
+        }
+      }
+    },
+    "content_specs": {
+      "type": "object",
+      "required": ["tone", "content_pillars"],
+      "properties": {
+        "tone": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "fun",
+              "relatable",
+              "aspirational",
+              "educational",
+              "emotional",
+              "humorous",
+              "proud_pinoy",
+              "budget_friendly",
+              "family_oriented",
+              "community"
+            ]
+          }
+        },
+        "content_pillars": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "e.g., recipe_hacks, tingi_hauls, store_tours, comedy_skits, product_demos"
+        },
+        "ugc_tier": {
+          "type": "string",
+          "enum": ["nano_1k_10k", "micro_10k_50k", "mid_50k_500k", "macro_500k_plus", "mixed"],
+          "description": "Target creator tier for UGC campaigns"
+        },
+        "must_include": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Mandatory elements: product shot, price point, brand logo, CTA, etc."
+        },
+        "avoid": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Elements to avoid: competitor mentions, controversial topics, etc."
+        },
+        "language_style": {
+          "type": "string",
+          "description": "e.g., casual_taglish, formal_english, conversational_tagalog"
+        },
+        "cta": {
+          "type": "string",
+          "description": "Primary call-to-action (e.g., Shop now on TikTok Shop, Visit your nearest sari-sari)"
+        }
+      }
+    },
+    "budget": {
+      "type": "object",
+      "properties": {
+        "currency": { "type": "string", "default": "PHP" },
+        "total": { "type": "number" },
+        "breakdown": {
+          "type": "object",
+          "properties": {
+            "creator_fees": { "type": "number" },
+            "ad_spend": { "type": "number" },
+            "production": { "type": "number" },
+            "platform_boost": { "type": "number" }
+          }
+        }
+      }
+    },
+    "kpis": {
+      "type": "object",
+      "properties": {
+        "target_views": { "type": "integer" },
+        "target_engagement_rate": { "type": "number", "description": "Percentage, e.g., 5.0 for 5%" },
+        "target_ugc_submissions": { "type": "integer" },
+        "target_sales_lift": { "type": "number", "description": "Percentage lift" },
+        "target_brand_awareness_lift": { "type": "number" },
+        "target_roas": { "type": "number" }
+      }
+    }
+  }
+}
