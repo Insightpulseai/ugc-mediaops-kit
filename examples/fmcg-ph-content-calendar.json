@@ -1,0 +1,118 @@
+{
+  "$schema": "../schemas/creative-brief-fmcg-ph.schema.json",
+  "_description": "Example: 7-day FMCG Philippines content calendar for a snack brand during Ber Months",
+  "brief_id": "BRIEF-PH-SNACK-20260901",
+  "brand": {
+    "name": "Example Snack Brand",
+    "category": "food_snacks",
+    "owner": "Example Corp"
+  },
+  "campaign": {
+    "name": "Ber Months Merienda Madness",
+    "objective": "engagement",
+    "type": "ugc_challenge",
+    "cultural_moment": "ber_months_start",
+    "hashtags": ["#MeriendaMadness", "#BerMonthsBites", "#TingiTreats"],
+    "start_date": "2026-09-01",
+    "end_date": "2026-09-30"
+  },
+  "audience": {
+    "age_range": { "min": 18, "max": 35 },
+    "gender": "all",
+    "location": { "scope": "nationwide" },
+    "socioeconomic": "mass_market",
+    "language": "taglish",
+    "persona_tags": ["student", "young_professional", "nanay", "sari_sari_owner"]
+  },
+  "platforms": [
+    { "platform": "tiktok", "format": "short_video_30s", "aspect_ratio": "9:16", "posting_frequency": "daily" },
+    { "platform": "facebook", "format": "reels", "aspect_ratio": "9:16", "posting_frequency": "5x/week" },
+    { "platform": "instagram", "format": "reels", "aspect_ratio": "9:16", "posting_frequency": "4x/week" },
+    { "platform": "tiktok_shop", "format": "livestream", "aspect_ratio": "9:16", "posting_frequency": "2x/week" }
+  ],
+  "content_specs": {
+    "tone": ["fun", "relatable", "budget_friendly", "humorous"],
+    "content_pillars": ["merienda_hacks", "tingi_hauls", "comedy_skits", "sari_sari_tours", "recipe_hacks"],
+    "ugc_tier": "mixed",
+    "must_include": ["product_shot", "price_point_php", "brand_logo_endcard", "cta"],
+    "avoid": ["competitor_mentions", "alcohol", "political_content"],
+    "language_style": "casual_taglish",
+    "cta": "Bili na sa pinakamalapit na tindahan! 🏪"
+  },
+  "weekly_calendar": [
+    {
+      "day": "Monday",
+      "theme": "Motivation Monday",
+      "content": "BTS: How our snacks are made — factory tour Reels",
+      "platform": ["tiktok", "facebook"],
+      "format": "short_video_30s",
+      "creator_tier": "brand_owned"
+    },
+    {
+      "day": "Tuesday",
+      "theme": "Tutorial Tuesday",
+      "content": "Merienda hack: 3 ways to level-up your snack (add cheese, dip in champorado, etc.)",
+      "platform": ["tiktok", "instagram", "facebook"],
+      "format": "short_video_60s",
+      "creator_tier": "micro_10k_50k"
+    },
+    {
+      "day": "Wednesday",
+      "theme": "Community Wednesday",
+      "content": "UGC repost: Feature best fan-submitted merienda setup + sari-sari store shoutout",
+      "platform": ["tiktok", "facebook", "instagram"],
+      "format": "reels",
+      "creator_tier": "ugc_repost"
+    },
+    {
+      "day": "Thursday",
+      "theme": "Trending Thursday",
+      "content": "Jump on trending TikTok audio with product integration — reactive content",
+      "platform": ["tiktok"],
+      "format": "short_video_15s",
+      "creator_tier": "nano_1k_10k"
+    },
+    {
+      "day": "Friday",
+      "theme": "Fun Friday",
+      "content": "Comedy skit: 'Pag walang merienda sa bahay' (When there's no snack at home) — relatable humor",
+      "platform": ["tiktok", "facebook", "instagram"],
+      "format": "short_video_30s",
+      "creator_tier": "mid_50k_500k"
+    },
+    {
+      "day": "Saturday",
+      "theme": "Shoppertainment Saturday",
+      "content": "TikTok Shop livestream: Bundle deals + taste test with creator",
+      "platform": ["tiktok_shop"],
+      "format": "livestream",
+      "creator_tier": "mid_50k_500k"
+    },
+    {
+      "day": "Sunday",
+      "theme": "Engagement Sunday",
+      "content": "Poll: 'Anong favorite mong merienda combo?' + weekly UGC roundup",
+      "platform": ["facebook", "instagram"],
+      "format": "carousel",
+      "creator_tier": "brand_owned"
+    }
+  ],
+  "budget": {
+    "currency": "PHP",
+    "total": 500000,
+    "breakdown": {
+      "creator_fees": 200000,
+      "ad_spend": 200000,
+      "production": 50000,
+      "platform_boost": 50000
+    }
+  },
+  "kpis": {
+    "target_views": 5000000,
+    "target_engagement_rate": 5.0,
+    "target_ugc_submissions": 500,
+    "target_sales_lift": 15,
+    "target_brand_awareness_lift": 8,
+    "target_roas": 4.0
+  }
+}
